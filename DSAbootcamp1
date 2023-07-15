@@ -1,0 +1,27 @@
+java
+public class ArrayRotation {
+    public static int[] rotateArray(int[] arr, int rotationCount) {
+        int length = arr.length;
+        int effectiveRotationCount = rotationCount % length;
+        int[] rotatedArray = new int[length];
+        
+        for (int i = 0; i < length; i++) {
+            int newIndex = (i + effectiveRotationCount) % length;
+            rotatedArray[newIndex] = arr[i];
+        }
+        
+        return rotatedArray;
+    }
+    
+    public static void main(String[] args) {
+        int[] inputArray = {1, 2, 3, 4, 5};
+        int rotationCount = 2;
+        
+        int[] rotatedArray = rotateArray(inputArray, rotationCount);
+        
+        System.out.print("Rotated Array: ");
+        for (int element : rotatedArray) {
+            System.out.print(element + " ");
+        }
+    }
+}
